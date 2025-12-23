@@ -1,5 +1,5 @@
 /**
- * @file Grammer for the Volo scripting language
+ * @file Grammar for the Volo scripting language
  * @author Bastian Blokland <mail@bastian.tech>
  * @license MIT
  */
