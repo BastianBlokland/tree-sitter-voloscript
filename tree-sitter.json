@@ -1,0 +1,31 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/config.schema.json",
+  "grammars": [
+    {
+      "name": "voloscript",
+      "camelcase": "VoloScript",
+      "title": "Volo Script",
+      "scope": "source.volo-script",
+      "file-types": [
+        "script"
+      ],
+      "injection-regex": "^voloscript$",
+      "class-name": "TreeSitterVoloscript"
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "license": "MIT",
+    "description": "Grammar for the Volo scripting language",
+    "authors": [
+      {
+        "name": "Bastian Blokland",
+        "email": "mail@bastian.tech",
+        "url": "https://bastian.tech/"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/BastianBlokland/tree-sitter-voloscript"
+    }
+  }
+}
