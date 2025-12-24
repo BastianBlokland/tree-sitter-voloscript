@@ -14,7 +14,7 @@ module.exports = grammar({
   word: ($) => $.identifier,
 
   rules: {
-    source_file: ($) => $.block_implicit,
+    source_file: ($) => repeat($.statement),
 
     comment: (_) => token(choice(seq("//", /.*/), seq("/*", /[^*]*\*+([^/*][^*]*\*+)*/, "/"))),
     separator: (_) => choice(";", /\r?\n/),
@@ -22,7 +22,7 @@ module.exports = grammar({
     statement: ($) => seq($.expression, $.separator),
 
     block_implicit: ($) => seq($.statement, repeat($.statement)),
-    block_explicit: ($) => seq("{", $.block_implicit, "}"),
+    block_explicit: ($) => seq("{", repeat($.statement), "}"),
 
     expression_if: ($) =>
       prec.right(
