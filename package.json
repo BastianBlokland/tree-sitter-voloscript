@@ -1,5 +1,11 @@
 {
-  "devDependencies": {
+  "name": "tree-sitter-voloscript",
+  "version": "0.1.0",
+  "main": "index.js",
+  "scripts": {
+    "install": "tree-sitter generate && tree-sitter build"
+  },
+  "dependencies": {
     "tree-sitter-cli": "^0.26.3"
   }
 }
