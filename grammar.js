@@ -74,7 +74,7 @@ module.exports = grammar({
 
     expression_lookup: ($) => choice($.identifier, $.key, $.constant),
 
-    expression_unary: ($) => seq(choice("!", "-"), $.expression),
+    expression_unary: ($) => prec.right(8, seq(choice("!", "-"), $.expression)),
 
     expression_primary: ($) =>
       choice(
@@ -97,12 +97,12 @@ module.exports = grammar({
 
     expression_binary: ($) =>
       choice(
-        prec.left(1, seq($.expression, "??", $.expression)),
-        prec.left(2, seq($.expression, "||", $.expression)),
-        prec.left(3, seq($.expression, "&&", $.expression)),
-        prec.left(4, seq($.expression, choice("==", "!=", "<", ">", "<=", ">="), $.expression)),
-        prec.left(5, seq($.expression, choice("+", "-"), $.expression)),
-        prec.left(6, seq($.expression, choice("*", "/", "%"), $.expression)),
+        prec.left(2, seq($.expression, "??", $.expression)),
+        prec.left(3, seq($.expression, choice("||", "&&"), $.expression)),
+        prec.left(4, seq($.expression, choice("==", "!="), $.expression)),
+        prec.left(5, seq($.expression, choice("<", ">", "<=", ">="), $.expression)),
+        prec.left(6, seq($.expression, choice("+", "-"), $.expression)),
+        prec.left(7, seq($.expression, choice("*", "/", "%"), $.expression)),
       ),
 
     expression_select: ($) =>
