@@ -10,7 +10,8 @@
         "script"
       ],
       "injection-regex": "^voloscript$",
-      "class-name": "TreeSitterVoloscript"
+      "class-name": "TreeSitterVoloscript",
+      "highlights": "queries/highlights.scm"
     }
   ],
   "metadata": {
