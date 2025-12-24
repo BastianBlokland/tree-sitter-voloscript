@@ -25,13 +25,16 @@ module.exports = grammar({
     block_explicit: ($) => seq("{", $.block_implicit, "}"),
 
     expression_if: ($) =>
-      seq(
-        "if",
-        "(",
-        field("condition", $.expression),
-        ")",
-        field("consequence", $.expression),
-        optional(seq("else", field("alternative", $.expression))),
+      prec.right(
+        2,
+        seq(
+          "if",
+          "(",
+          field("condition", $.expression),
+          ")",
+          field("consequence", $.expression),
+          optional(seq("else", field("alternative", $.expression))),
+        ),
       ),
 
     expression_while: ($) =>
@@ -57,7 +60,7 @@ module.exports = grammar({
 
     expression_continue: (_) => "continue",
     expression_break: (_) => "break",
-    expression_return: ($) => seq("return", optional($.expression)),
+    expression_return: ($) => prec.right(seq("return", optional($.expression))),
 
     expression_call: ($) =>
       seq(field("function", $.identifier), "(", optional($.argument_list), ")"),
@@ -103,12 +106,15 @@ module.exports = grammar({
       ),
 
     expression_select: ($) =>
-      seq(
-        field("condition", $.expression),
-        "?",
-        field("consequence", $.expression),
-        ":",
-        field("alternative", $.expression),
+      prec.right(
+        1,
+        seq(
+          field("condition", $.expression),
+          "?",
+          field("consequence", $.expression),
+          ":",
+          field("alternative", $.expression),
+        ),
       ),
 
     expression: ($) => choice($.expression_primary, $.expression_binary, $.expression_select),
