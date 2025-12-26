@@ -29,16 +29,14 @@ module.exports = grammar({
         2,
         seq(
           "if",
-          "(",
-          field("condition", $.expression),
-          ")",
+          field("condition", $.expression_paren),
           field("consequence", $.expression),
           optional(seq("else", field("alternative", $.expression))),
         ),
       ),
 
     expression_while: ($) =>
-      seq("while", "(", field("condition", $.expression), ")", field("consequence", $.expression)),
+      seq("while", field("condition", $.expression_paren), field("consequence", $.expression)),
 
     expression_for: ($) =>
       seq(
