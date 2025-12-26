@@ -60,8 +60,7 @@ module.exports = grammar({
     expression_break: (_) => "break",
     expression_return: ($) => prec.right(seq("return", optional($.expression))),
 
-    expression_call: ($) =>
-      seq(field("function", $.identifier), "(", optional($.argument_list), ")"),
+    expression_call: ($) => seq(field("function", $.identifier), $.argument_list_paren),
 
     expression_modify: ($) =>
       seq(
@@ -117,6 +116,7 @@ module.exports = grammar({
 
     expression: ($) => choice($.expression_primary, $.expression_binary, $.expression_select),
 
+    argument_list_paren: ($) => seq("(", optional($.argument_list), ")"),
     argument_list: ($) => seq($.expression, repeat(seq(",", $.expression))),
 
     identifier: (_) => /[a-zA-Z_][a-zA-Z0-9_]*/,
