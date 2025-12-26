@@ -189,13 +189,9 @@
         }
       ]
     },
-    "expression_for": {
+    "expression_for_config": {
       "type": "SEQ",
       "members": [
-        {
-          "type": "STRING",
-          "value": "for"
-        },
         {
           "type": "STRING",
           "value": "("
@@ -259,6 +255,19 @@
         {
           "type": "STRING",
           "value": ")"
+        }
+      ]
+    },
+    "expression_for": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "for"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression_for_config"
         },
         {
           "type": "FIELD",

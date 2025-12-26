@@ -102,19 +102,35 @@
     "type": "expression_for",
     "named": true,
     "fields": {
-      "condition": {
+      "consequence": {
         "multiple": false,
-        "required": false,
+        "required": true,
         "types": [
           {
             "type": "expression",
             "named": true
           }
         ]
-      },
-      "consequence": {
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "expression_for_config",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "expression_for_config",
+    "named": true,
+    "fields": {
+      "condition": {
         "multiple": false,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "expression",

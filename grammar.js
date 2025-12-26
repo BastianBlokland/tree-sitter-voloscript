@@ -38,9 +38,8 @@ module.exports = grammar({
     expression_while: ($) =>
       seq("while", field("condition", $.expression_paren), field("consequence", $.expression)),
 
-    expression_for: ($) =>
+    expression_for_config: ($) =>
       seq(
-        "for",
         "(",
         optional(field("initializer", $.expression)),
         ";",
@@ -48,8 +47,9 @@ module.exports = grammar({
         ";",
         optional(field("increment", $.expression)),
         ")",
-        field("consequence", $.expression),
       ),
+
+    expression_for: ($) => seq("for", $.expression_for_config, field("consequence", $.expression)),
 
     expression_paren: ($) => seq("(", $.expression, ")"),
 

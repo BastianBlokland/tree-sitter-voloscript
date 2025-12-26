@@ -29,6 +29,7 @@
 
 (block_explicit) @punctuation.bracket
 (expression_paren) @punctuation.bracket
+(expression_for_config) @punctuation.bracket
 
 (comment) @comment
 (separator) @punctuation.separator
