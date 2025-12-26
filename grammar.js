@@ -124,7 +124,7 @@ module.exports = grammar({
     identifier: (_) => /[a-zA-Z_][a-zA-Z0-9_]*/,
     key: (_) => /\$[a-zA-Z_][a-zA-Z0-9_]*/,
     number: (_) => /\d+(\.\d+)?/,
-    string: (_) => /"([^"\\]|\\.)*"/,
+    string: ($) => seq('"', repeat(/[^"\\]+/), token.immediate('"')),
     constant: (_) =>
       choice(
         "null",
