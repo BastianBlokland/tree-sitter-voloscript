@@ -121,20 +121,12 @@
             "value": "if"
           },
           {
-            "type": "STRING",
-            "value": "("
-          },
-          {
             "type": "FIELD",
             "name": "condition",
             "content": {
               "type": "SYMBOL",
-              "name": "expression"
+              "name": "expression_paren"
             }
-          },
-          {
-            "type": "STRING",
-            "value": ")"
           },
           {
             "type": "FIELD",
@@ -180,20 +172,12 @@
           "value": "while"
         },
         {
-          "type": "STRING",
-          "value": "("
-        },
-        {
           "type": "FIELD",
           "name": "condition",
           "content": {
             "type": "SYMBOL",
-            "name": "expression"
+            "name": "expression_paren"
           }
-        },
-        {
-          "type": "STRING",
-          "value": ")"
         },
         {
           "type": "FIELD",

@@ -163,7 +163,7 @@
         "required": true,
         "types": [
           {
-            "type": "expression",
+            "type": "expression_paren",
             "named": true
           }
         ]
@@ -420,7 +420,7 @@
         "required": true,
         "types": [
           {
-            "type": "expression",
+            "type": "expression_paren",
             "named": true
           }
         ]
