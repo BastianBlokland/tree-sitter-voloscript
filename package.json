@@ -13,6 +13,7 @@
       "file-types": [
         "script"
       ],
+      "injection-regex": "^voloscript$",
       "highlights": [
         "queries/highlights.scm"
       ]

@@ -5,7 +5,7 @@
       "name": "voloscript",
       "camelcase": "VoloScript",
       "title": "Volo Script",
-      "scope": "source.volo-script",
+      "scope": "source.voloscript",
       "file-types": [
         "script"
       ],
