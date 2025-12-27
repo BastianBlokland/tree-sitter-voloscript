@@ -3,6 +3,7 @@
 /.direnv/
 
 # Build outputs.
+/result
 voloscript.so
 
 # Cache directories.
