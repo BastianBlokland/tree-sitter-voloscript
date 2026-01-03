@@ -4,11 +4,8 @@
   "word": "identifier",
   "rules": {
     "source_file": {
-      "type": "REPEAT",
-      "content": {
-        "type": "SYMBOL",
-        "name": "statement"
-      }
+      "type": "SYMBOL",
+      "name": "block_implicit"
     },
     "comment": {
       "type": "TOKEN",
@@ -57,20 +54,7 @@
         },
         {
           "type": "PATTERN",
-          "value": "\\r?\\n"
-        }
-      ]
-    },
-    "statement": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "separator"
+          "value": "(\\r?\\n)+"
         }
       ]
     },
@@ -79,14 +63,35 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "statement"
+          "name": "expression"
         },
         {
           "type": "REPEAT",
           "content": {
-            "type": "SYMBOL",
-            "name": "statement"
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "separator"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "expression"
+              }
+            ]
           }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "separator"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
     },
@@ -98,11 +103,8 @@
           "value": "{"
         },
         {
-          "type": "REPEAT",
-          "content": {
-            "type": "SYMBOL",
-            "name": "statement"
-          }
+          "type": "SYMBOL",
+          "name": "block_implicit"
         },
         {
           "type": "STRING",
@@ -135,6 +137,18 @@
               "type": "SYMBOL",
               "name": "expression"
             }
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "separator"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
           },
           {
             "type": "CHOICE",
@@ -438,6 +452,14 @@
             {
               "type": "STRING",
               "value": "??="
+            },
+            {
+              "type": "STRING",
+              "value": "|="
+            },
+            {
+              "type": "STRING",
+              "value": "&="
             }
           ]
         },
