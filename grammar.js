@@ -31,6 +31,7 @@ module.exports = grammar({
           "if",
           field("condition", $.expression_paren),
           field("consequence", $.expression),
+          optional($.separator),
           optional(seq("else", field("alternative", $.expression))),
         ),
       ),
