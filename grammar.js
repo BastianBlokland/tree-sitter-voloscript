@@ -64,7 +64,7 @@ module.exports = grammar({
     expression_modify: ($) =>
       seq(
         field("left", choice($.identifier, $.key)),
-        choice("=", "+=", "-=", "*=", "/=", "%=", "??="),
+        choice("=", "+=", "-=", "*=", "/=", "%=", "??=", "|=", "&="),
         field("right", $.expression),
       ),
 
