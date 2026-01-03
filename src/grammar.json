@@ -54,7 +54,7 @@
         },
         {
           "type": "PATTERN",
-          "value": "\\s*\\r?\\n"
+          "value": "\\r?\\n"
         }
       ]
     },
@@ -103,8 +103,16 @@
           "value": "{"
         },
         {
-          "type": "SYMBOL",
-          "name": "block_implicit"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "block_implicit"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         },
         {
           "type": "STRING",
