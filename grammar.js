@@ -17,7 +17,7 @@ module.exports = grammar({
     source_file: ($) => $.block_implicit,
 
     comment: (_) => token(choice(seq("//", /.*/), seq("/*", /[^*]*\*+([^/*][^*]*\*+)*/, "/"))),
-    separator: (_) => choice(";", /\s+/),
+    separator: (_) => choice(";", /\s*\r?\n/),
 
     block_implicit: ($) => seq($.expression, repeat(seq($.separator, $.expression)), optional($.separator)),
     block_explicit: ($) => seq("{", $.block_implicit, "}"),
