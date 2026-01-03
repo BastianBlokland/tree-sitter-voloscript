@@ -479,3 +479,52 @@ Explicit block
         (number))
       (separator)))
   (separator))
+
+
+============================================
+Nested explicit blocks
+============================================
+
+{{}}
+{{{}}}
+{
+  {
+  }
+  {}
+{
+{1}
+}
+}
+
+---
+
+(source_file
+  (expression
+    (block_explicit
+      (expression
+        (block_explicit))))
+  (separator)
+  (expression
+    (block_explicit
+      (expression
+        (block_explicit
+          (expression
+            (block_explicit))))))
+  (separator)
+  (expression
+    (block_explicit
+      (expression
+        (block_explicit))
+      (separator)
+      (expression
+        (block_explicit))
+      (separator)
+      (expression
+        (block_explicit
+          (expression
+            (block_explicit
+              (expression
+                (number))))
+          (separator)))
+      (separator)))
+  (separator))
