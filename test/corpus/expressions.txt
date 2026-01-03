@@ -355,3 +355,42 @@ x % y
         (expression_lookup
           (identifier)))))
   (separator))
+
+============================================
+Implicit block
+============================================
+
+1
+x;y;z
+x; y ; z
+
+---
+
+(source_file
+  (expression
+    (number))
+  (separator)
+  (expression
+    (expression_lookup
+      (identifier)))
+  (separator)
+  (expression
+    (expression_lookup
+      (identifier)))
+  (separator)
+  (expression
+    (expression_lookup
+      (identifier)))
+  (separator)
+  (expression
+    (expression_lookup
+      (identifier)))
+  (separator)
+  (expression
+    (expression_lookup
+      (identifier)))
+  (separator)
+  (expression
+    (expression_lookup
+      (identifier)))
+  (separator))
