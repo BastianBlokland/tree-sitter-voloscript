@@ -13,7 +13,7 @@ build: generate
 	tree-sitter build
 
 .PHONY: test
-test:
+test: build
 	tree-sitter test
 
 .SILENT:
