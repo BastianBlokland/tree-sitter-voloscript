@@ -54,7 +54,7 @@
         },
         {
           "type": "PATTERN",
-          "value": "(\\r?\\n)+"
+          "value": "\\s+"
         }
       ]
     },
