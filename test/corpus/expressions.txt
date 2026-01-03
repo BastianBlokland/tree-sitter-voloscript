@@ -175,3 +175,183 @@ $x &= 1
       right: (expression
         (number))))
   (separator))
+
+============================================
+Unary expression
+============================================
+
+!x
+-true
+-!10
+
+---
+
+(source_file
+  (expression
+    (expression_unary
+      (expression
+        (expression_lookup
+          (identifier)))))
+  (separator)
+  (expression
+    (expression_unary
+      (expression
+        (expression_lookup
+          (constant)))))
+  (separator)
+  (expression
+    (expression_unary
+      (expression
+        (expression_unary
+          (expression
+            (number))))))
+  (separator))
+
+============================================
+Binary expression
+============================================
+
+x ?? y
+x || y
+x && y
+x == y
+x != y
+x < y
+x > y
+x <= y
+x >= y
+x + y
+x - y
+x * y
+x / y
+x % y
+
+---
+
+(source_file
+  (expression
+    (expression_binary
+      (expression
+        (expression_lookup
+          (identifier)))
+      (expression
+        (expression_lookup
+          (identifier)))))
+  (separator)
+  (expression
+    (expression_binary
+      (expression
+        (expression_lookup
+          (identifier)))
+      (expression
+        (expression_lookup
+          (identifier)))))
+  (separator)
+  (expression
+    (expression_binary
+      (expression
+        (expression_lookup
+          (identifier)))
+      (expression
+        (expression_lookup
+          (identifier)))))
+  (separator)
+  (expression
+    (expression_binary
+      (expression
+        (expression_lookup
+          (identifier)))
+      (expression
+        (expression_lookup
+          (identifier)))))
+  (separator)
+  (expression
+    (expression_binary
+      (expression
+        (expression_lookup
+          (identifier)))
+      (expression
+        (expression_lookup
+          (identifier)))))
+  (separator)
+  (expression
+    (expression_binary
+      (expression
+        (expression_lookup
+          (identifier)))
+      (expression
+        (expression_lookup
+          (identifier)))))
+  (separator)
+  (expression
+    (expression_binary
+      (expression
+        (expression_lookup
+          (identifier)))
+      (expression
+        (expression_lookup
+          (identifier)))))
+  (separator)
+  (expression
+    (expression_binary
+      (expression
+        (expression_lookup
+          (identifier)))
+      (expression
+        (expression_lookup
+          (identifier)))))
+  (separator)
+  (expression
+    (expression_binary
+      (expression
+        (expression_lookup
+          (identifier)))
+      (expression
+        (expression_lookup
+          (identifier)))))
+  (separator)
+  (expression
+    (expression_binary
+      (expression
+        (expression_lookup
+          (identifier)))
+      (expression
+        (expression_lookup
+          (identifier)))))
+  (separator)
+  (expression
+    (expression_binary
+      (expression
+        (expression_lookup
+          (identifier)))
+      (expression
+        (expression_lookup
+          (identifier)))))
+  (separator)
+  (expression
+    (expression_binary
+      (expression
+        (expression_lookup
+          (identifier)))
+      (expression
+        (expression_lookup
+          (identifier)))))
+  (separator)
+  (expression
+    (expression_binary
+      (expression
+        (expression_lookup
+          (identifier)))
+      (expression
+        (expression_lookup
+          (identifier)))))
+  (separator)
+  (expression
+    (expression_binary
+      (expression
+        (expression_lookup
+          (identifier)))
+      (expression
+        (expression_lookup
+          (identifier)))))
+  (separator))
