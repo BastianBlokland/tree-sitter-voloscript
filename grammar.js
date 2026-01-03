@@ -13,13 +13,16 @@ module.exports = grammar({
   extras: ($) => [/\s/, $.comment],
   word: ($) => $.identifier,
 
+  inline: ($) => [$.block_implicit, $.expression_primary],
+
   rules: {
     source_file: ($) => $.block_implicit,
 
     comment: (_) => token(choice(seq("//", /.*/), seq("/*", /[^*]*\*+([^/*][^*]*\*+)*/, "/"))),
     separator: (_) => choice(";", /\s*\r?\n/),
 
-    block_implicit: ($) => seq($.expression, repeat(seq($.separator, $.expression)), optional($.separator)),
+    block_implicit: ($) =>
+      seq($.expression, repeat(seq($.separator, $.expression)), optional($.separator)),
     block_explicit: ($) => seq("{", $.block_implicit, "}"),
 
     expression_if: ($) =>

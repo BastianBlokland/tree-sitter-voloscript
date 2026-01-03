@@ -34,21 +34,6 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "block_implicit",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "block_implicit",
-    "named": true,
-    "fields": {},
-    "children": {
       "multiple": true,
       "required": true,
       "types": [
@@ -77,15 +62,71 @@
       "required": true,
       "types": [
         {
+          "type": "block_explicit",
+          "named": true
+        },
+        {
           "type": "expression_binary",
           "named": true
         },
         {
-          "type": "expression_primary",
+          "type": "expression_break",
+          "named": true
+        },
+        {
+          "type": "expression_call",
+          "named": true
+        },
+        {
+          "type": "expression_continue",
+          "named": true
+        },
+        {
+          "type": "expression_for",
+          "named": true
+        },
+        {
+          "type": "expression_if",
+          "named": true
+        },
+        {
+          "type": "expression_lookup",
+          "named": true
+        },
+        {
+          "type": "expression_modify",
+          "named": true
+        },
+        {
+          "type": "expression_paren",
+          "named": true
+        },
+        {
+          "type": "expression_return",
           "named": true
         },
         {
           "type": "expression_select",
+          "named": true
+        },
+        {
+          "type": "expression_unary",
+          "named": true
+        },
+        {
+          "type": "expression_var_declare",
+          "named": true
+        },
+        {
+          "type": "expression_while",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "string",
           "named": true
         }
       ]
@@ -309,77 +350,6 @@
     }
   },
   {
-    "type": "expression_primary",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "block_explicit",
-          "named": true
-        },
-        {
-          "type": "expression_break",
-          "named": true
-        },
-        {
-          "type": "expression_call",
-          "named": true
-        },
-        {
-          "type": "expression_continue",
-          "named": true
-        },
-        {
-          "type": "expression_for",
-          "named": true
-        },
-        {
-          "type": "expression_if",
-          "named": true
-        },
-        {
-          "type": "expression_lookup",
-          "named": true
-        },
-        {
-          "type": "expression_modify",
-          "named": true
-        },
-        {
-          "type": "expression_paren",
-          "named": true
-        },
-        {
-          "type": "expression_return",
-          "named": true
-        },
-        {
-          "type": "expression_unary",
-          "named": true
-        },
-        {
-          "type": "expression_var_declare",
-          "named": true
-        },
-        {
-          "type": "expression_while",
-          "named": true
-        },
-        {
-          "type": "number",
-          "named": true
-        },
-        {
-          "type": "string",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "expression_return",
     "named": true,
     "fields": {},
@@ -508,11 +478,15 @@
     "root": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
-          "type": "block_implicit",
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "separator",
           "named": true
         }
       ]

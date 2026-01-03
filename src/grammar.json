@@ -1003,7 +1003,10 @@
   "conflicts": [],
   "precedences": [],
   "externals": [],
-  "inline": [],
+  "inline": [
+    "block_implicit",
+    "expression_primary"
+  ],
   "supertypes": [],
   "reserved": {}
 }
