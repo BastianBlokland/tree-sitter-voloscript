@@ -14,15 +14,13 @@ module.exports = grammar({
   word: ($) => $.identifier,
 
   rules: {
-    source_file: ($) => repeat($.statement),
+    source_file: ($) => $.block_implicit,
 
     comment: (_) => token(choice(seq("//", /.*/), seq("/*", /[^*]*\*+([^/*][^*]*\*+)*/, "/"))),
-    separator: (_) => choice(";", /\r?\n/),
+    separator: (_) => choice(";", /(\r?\n)+/),
 
-    statement: ($) => seq($.expression, $.separator),
-
-    block_implicit: ($) => seq($.statement, repeat($.statement)),
-    block_explicit: ($) => seq("{", repeat($.statement), "}"),
+    block_implicit: ($) => seq($.expression, repeat(seq($.separator, $.expression)), optional($.separator)),
+    block_explicit: ($) => seq("{", $.block_implicit, "}"),
 
     expression_if: ($) =>
       prec.right(
