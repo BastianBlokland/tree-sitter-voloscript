@@ -1,0 +1,177 @@
+============================================
+Variable declare
+============================================
+
+var x
+var y = 42
+var z = x + y
+
+---
+
+(source_file
+  (expression
+    (expression_var_declare
+      name: (identifier)))
+  (separator)
+  (expression
+    (expression_var_declare
+      name: (identifier)
+      value: (expression
+        (number))))
+  (separator)
+  (expression
+    (expression_var_declare
+      name: (identifier)
+      value: (expression
+        (expression_binary
+          (expression
+            (expression_lookup
+              (identifier)))
+          (expression
+            (expression_lookup
+              (identifier)))))))
+  (separator))
+
+============================================
+Variable Modify
+============================================
+
+x = 1
+x += 1
+x -= 1
+x *= 1
+x /= 1
+x %= 1
+x ??= 1
+x |= 1
+x &= 1
+
+---
+
+(source_file
+  (expression
+    (expression_modify
+      left: (identifier)
+      right: (expression
+        (number))))
+  (separator)
+  (expression
+    (expression_modify
+      left: (identifier)
+      right: (expression
+        (number))))
+  (separator)
+  (expression
+    (expression_modify
+      left: (identifier)
+      right: (expression
+        (number))))
+  (separator)
+  (expression
+    (expression_modify
+      left: (identifier)
+      right: (expression
+        (number))))
+  (separator)
+  (expression
+    (expression_modify
+      left: (identifier)
+      right: (expression
+        (number))))
+  (separator)
+  (expression
+    (expression_modify
+      left: (identifier)
+      right: (expression
+        (number))))
+  (separator)
+  (expression
+    (expression_modify
+      left: (identifier)
+      right: (expression
+        (number))))
+  (separator)
+  (expression
+    (expression_modify
+      left: (identifier)
+      right: (expression
+        (number))))
+  (separator)
+  (expression
+    (expression_modify
+      left: (identifier)
+      right: (expression
+        (number))))
+  (separator))
+
+============================================
+Key Modify
+============================================
+
+$x = 1
+$x += 1
+$x -= 1
+$x *= 1
+$x /= 1
+$x %= 1
+$x ??= 1
+$x |= 1
+$x &= 1
+
+---
+
+(source_file
+  (expression
+    (expression_modify
+      left: (key)
+      right: (expression
+        (number))))
+  (separator)
+  (expression
+    (expression_modify
+      left: (key)
+      right: (expression
+        (number))))
+  (separator)
+  (expression
+    (expression_modify
+      left: (key)
+      right: (expression
+        (number))))
+  (separator)
+  (expression
+    (expression_modify
+      left: (key)
+      right: (expression
+        (number))))
+  (separator)
+  (expression
+    (expression_modify
+      left: (key)
+      right: (expression
+        (number))))
+  (separator)
+  (expression
+    (expression_modify
+      left: (key)
+      right: (expression
+        (number))))
+  (separator)
+  (expression
+    (expression_modify
+      left: (key)
+      right: (expression
+        (number))))
+  (separator)
+  (expression
+    (expression_modify
+      left: (key)
+      right: (expression
+        (number))))
+  (separator)
+  (expression
+    (expression_modify
+      left: (key)
+      right: (expression
+        (number))))
+  (separator))
