@@ -363,6 +363,7 @@ Implicit block
 1
 x;y;z
 x; y ; z
+x;
 
 ---
 
@@ -393,4 +394,88 @@ x; y ; z
   (expression
     (expression_lookup
       (identifier)))
+  (separator)
+  (expression
+    (expression_lookup
+      (identifier)))
+  (separator))
+
+============================================
+Explicit block
+============================================
+
+{}
+{  }
+{
+
+}
+{1}
+{1;2;3}
+{
+  1
+}
+{
+  1
+  2
+}
+{
+  1
+  2;
+  3
+}
+
+---
+
+(source_file
+  (expression
+    (block_explicit))
+  (separator)
+  (expression
+    (block_explicit))
+  (separator)
+  (expression
+    (block_explicit))
+  (separator)
+  (expression
+    (block_explicit
+      (expression
+        (number))))
+  (separator)
+  (expression
+    (block_explicit
+      (expression
+        (number))
+      (separator)
+      (expression
+        (number))
+      (separator)
+      (expression
+        (number))))
+  (separator)
+  (expression
+    (block_explicit
+      (expression
+        (number))
+      (separator)))
+  (separator)
+  (expression
+    (block_explicit
+      (expression
+        (number))
+      (separator)
+      (expression
+        (number))
+      (separator)))
+  (separator)
+  (expression
+    (block_explicit
+      (expression
+        (number))
+      (separator)
+      (expression
+        (number))
+      (separator)
+      (expression
+        (number))
+      (separator)))
   (separator))
