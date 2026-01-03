@@ -153,18 +153,6 @@
                 "type": "SEQ",
                 "members": [
                   {
-                    "type": "CHOICE",
-                    "members": [
-                      {
-                        "type": "SYMBOL",
-                        "name": "separator"
-                      },
-                      {
-                        "type": "BLANK"
-                      }
-                    ]
-                  },
-                  {
                     "type": "STRING",
                     "value": "else"
                   },
