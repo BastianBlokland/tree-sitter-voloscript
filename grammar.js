@@ -14,6 +14,7 @@ module.exports = grammar({
   word: ($) => $.identifier,
 
   inline: ($) => [$.block_implicit, $.expression_primary],
+  conflicts: ($) => [[$.expression_if, $.expression_if]],
 
   rules: {
     source_file: ($) => $.block_implicit,
@@ -26,14 +27,11 @@ module.exports = grammar({
     block_explicit: ($) => seq("{", optional($.block_implicit), "}"),
 
     expression_if: ($) =>
-      prec.right(
-        2,
-        seq(
-          "if",
-          field("condition", $.expression_paren),
-          field("consequence", $.expression),
-          optional(seq("else", field("alternative", $.expression))),
-        ),
+      seq(
+        "if",
+        field("condition", $.expression_paren),
+        field("consequence", $.expression),
+        optional(seq(optional($.separator), "else", field("alternative", $.expression))),
       ),
 
     expression_while: ($) =>
