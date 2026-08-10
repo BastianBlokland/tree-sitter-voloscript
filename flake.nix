@@ -7,26 +7,29 @@
 
   outputs = { self, nixpkgs, ... }:
   let
-    system = "x86_64-linux";
-    pkgs = import nixpkgs { inherit system; };
+    systems = [ "x86_64-linux" "aarch64-linux" ];
+    forAllSystems = f: nixpkgs.lib.genAttrs systems (system: f nixpkgs.legacyPackages.${system});
   in
   {
-    packages.${system}.tree-sitter-voloscript =
-      pkgs.tree-sitter.buildGrammar {
+    packages = forAllSystems (pkgs: rec {
+      tree-sitter-voloscript = pkgs.tree-sitter.buildGrammar {
         language = "voloscript";
         version = "0.1.0";
         src = self;
       };
 
-    defaultPackage.${system} = self.packages.${system}.tree-sitter-voloscript;
+      default = tree-sitter-voloscript;
+    });
 
-    devShells.${system}.default = pkgs.mkShell {
-      packages = [
-        pkgs.gcc
-        pkgs.gnumake
-        pkgs.nodejs_24
-        pkgs.tree-sitter
-      ];
-    };
+    devShells = forAllSystems (pkgs: {
+      default = pkgs.mkShell {
+        packages = [
+          pkgs.gcc
+          pkgs.gnumake
+          pkgs.nodejs_24
+          pkgs.tree-sitter
+        ];
+      };
+    });
   };
 }
